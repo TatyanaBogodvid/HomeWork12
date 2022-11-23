@@ -27,10 +27,12 @@ public class Book {
     public String toString() {
         return this.bookTitle + " " + this.name + " " + this.productionYear;}
 
-    public boolean equals(Object other) {
-        if (this.getClass() != other.getClass()){
-            return false;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return productionYear == book.productionYear && bookTitle.equals(book.bookTitle) && name.equals(book.name);
     }
 
     @Override
