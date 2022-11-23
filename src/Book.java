@@ -1,7 +1,9 @@
+import java.util.Objects;
+
 public class Book {
-    String bookTitle;
-    Autor name;
-    int productionYear;
+    private String bookTitle;
+    private Autor name;
+    private int productionYear;
 
 
     public Book(String bookTitle, Autor name, int productionYear) {
@@ -20,5 +22,19 @@ public class Book {
     }
     public void setProductionYear(int productionYear){
         this.productionYear = productionYear;
+    }
+
+    public String toString() {
+        return this.bookTitle + " " + this.name + " " + this.productionYear;}
+
+    public boolean equals(Object other) {
+        if (this.getClass() != other.getClass()){
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookTitle, name, productionYear);
     }
 }
